@@ -17,9 +17,9 @@ void show_color(CRGB const c) {
 namespace led {
 void init() {
   FastLED.addLeds<NEOPIXEL, data_pin>(leds, num_leds);
-  show_color(CRGB::Blue);
+  show_color(static_cast<CRGB>(CRGB::Blue).nscale8(32));
 }
 
 void show_mic_on() { show_color(CRGB::Red); }
-void show_mic_off() { show_color(CRGB::Green); }
+void show_mic_off() { show_color(static_cast<CRGB>(CRGB::Green).nscale8(32)); }
 } // namespace led
