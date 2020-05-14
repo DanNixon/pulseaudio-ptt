@@ -37,6 +37,9 @@ ut.start()
 
 
 with pulsectl.Pulse('ptt-mute-setter') as pulse:
+    # List sources
+    print('\n'.join([s.name for s in pulse.source_list()]))
+
     while True:
         source = pulse.get_source_by_name(source_name)
 
